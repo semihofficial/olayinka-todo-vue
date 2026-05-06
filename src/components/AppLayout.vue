@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { CheckSquare, Plus, AlertTriangle } from 'lucide-vue-next'
+import ErrorBoundary from '@/components/ErrorBoundary.vue'
 
 const route = useRoute()
 const mobileMenuOpen = ref(false)
@@ -94,7 +95,9 @@ const navLinks = [
     </header>
 
     <main class="container mx-auto px-4 py-6" id="main-content">
-      <slot />
+      <ErrorBoundary>
+        <slot />
+      </ErrorBoundary>
     </main>
   </div>
 </template>
